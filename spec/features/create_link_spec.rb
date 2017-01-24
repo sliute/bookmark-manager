@@ -27,9 +27,6 @@ feature 'Seeing links' do
     fill_in :url, with: 'http://www.google.com'
     fill_in :tag, with: 'Search Engine'
     click_button 'Add'
-    # within 'ul#links' do
-    #   expect(page).to have_content('Search Engine')
-    # end
     link = Link.first
     expect(link.tags.map(&:tag_name)).to include('Search Engine')
   end
