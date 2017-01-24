@@ -9,7 +9,6 @@ feature 'Seeing links' do
     within 'ul#links' do
       expect(page).to have_content('Makers Academy')
     end
-    # Link.all(title: 'Makers Academy').destroy
   end
 
   scenario 'on the links/new page' do
@@ -20,7 +19,6 @@ feature 'Seeing links' do
     within 'ul#links' do
       expect(page).to have_content('Google')
     end
-    # Link.all(title: 'Google').destroy
   end
 
   scenario 'add a tag' do
