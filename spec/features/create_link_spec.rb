@@ -21,7 +21,7 @@ feature 'Seeing links' do
     end
   end
 
-  scenario 'add a tag' do
+  scenario 'and add a tag' do
     visit '/links/new'
     fill_in :title, with: 'Google'
     fill_in :url, with: 'http://www.google.com'
