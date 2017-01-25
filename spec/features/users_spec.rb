@@ -14,15 +14,25 @@ feature 'Signing up' do
   scenario 'with improper password confirmation' do
     expect { sign_up(password_confirmation: 'otherpassword')}.not_to change(User, :count)
     expect(current_path).to eq '/users'
-    expect(page).to have_content 'Your confirmation does not match your password!'
+    expect(page).to have_content 'Password does not match the confirmation'
   end
 
-  scenario "without an email address" do
+  scenario "without email address" do
     expect { sign_up(email: nil) }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Email must not be blank')
   end
 
-  scenario "with an invalid email address" do
+  scenario "with invalid email address" do
     expect { sign_up(email: 'been@drinking') }.not_to change(User, :count)
+    expect(current_path).to eq('/users')
+    expect(page).to have_content('Email has an invalid format')
+  end
+
+  scenario "with existing email" do
+    sign_up
+    expect { sign_up }.not_to change(User, :count)
+    expect(page).to have_content 'Email is already taken'
   end
 
   def sign_up(email: 'johndoe@internet.com', password: 'password', password_confirmation: 'password')
