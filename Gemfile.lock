@@ -81,6 +81,7 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    rake (12.0.0)
     rspec-sinatra (0.1.2)
       templater (>= 1.0.0)
     sinatra (1.4.7)
@@ -101,10 +102,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bcrypt
   capybara
   data_mapper
   database_cleaner
   dm-postgres-adapter
+  rake
   rspec-sinatra
   sinatra
 
@@ -112,4 +115,4 @@ RUBY VERSION
    ruby 2.4.0p0
 
 BUNDLED WITH
-   1.14.0
+   1.14.3

@@ -1,7 +1,7 @@
 require 'data_mapper'
 require './bookmark_manager.rb'
 
-namespace :database do
+namespace :db do
   desc "Auto upgrade!"
   task :auto_upgrade do
     DataMapper.auto_upgrade!
