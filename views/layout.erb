@@ -5,22 +5,32 @@
   </head>
 
   <body>
-    <div>
-      <% if current_user %>
+    <% if current_user %>
+      <div>
         Welcome <%= current_user.email %>
-      <% end %>
-    </div>
+        <form action='/sessions' method='post'>
+          <input type='hidden' name='_method' value='delete'>
+          <input type='submit' value='Sign out'>
+        </form>
+      </div>
+    <% end %>
 
-    <div>
-      <% if flash[:errors] && !flash[:errors].empty? %>
+    <% if flash[:notice] %>
+      <div id='notice'>
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    
+    <% if flash[:errors] && !flash[:errors].empty? %>
+      <div>
         Beep-beep:
         <ul id='errors'>
           <% flash[:errors].each do |error| %>
           <li><%= error %></li>
           <% end %>
         </ul>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
 
     <%= yield %>
   </body>
