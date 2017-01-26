@@ -8,6 +8,7 @@ require 'capybara/rspec'
 require 'rspec'
 require 'database_cleaner'
 require './app/models/link'
+require './app/models/user'
 
 require 'features/web_helpers'
 
