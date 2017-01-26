@@ -10,6 +10,7 @@ gem 'rake'
 gem 'sinatra'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
+gem 'timecop'
 
 group :test do
   gem 'byebug'
