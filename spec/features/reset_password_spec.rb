@@ -4,6 +4,7 @@ feature 'Resetting password' do
   before do
     sign_up
     Capybara.reset!
+    allow(SendRecoverLink).to receive(:call)
   end
 
   let(:user) { User.first }
@@ -47,7 +48,7 @@ feature 'Resetting password' do
     expect(page).to have_content 'Sign in to use Bookmark Manager'
   end
 
-  scenario 'it lets you sign in after password reset' do
+  scenario 'lets you sign in after password reset' do
     recover_password
     visit "/users/reset_password?token=#{user.password_token}"
     fill_in :password, with: 'new pass'
@@ -57,7 +58,7 @@ feature 'Resetting password' do
     expect(page).to have_content 'Welcome johndoe@internet.com'
   end
 
-  scenario 'it raises error if passwords do not match' do
+  scenario 'raises error if passwords do not match' do
     recover_password
     visit "/users/reset_password?token=#{user.password_token}"
     fill_in :password, with: 'new pass'
@@ -66,7 +67,7 @@ feature 'Resetting password' do
     expect(page).to have_content 'Password does not match the confirmation'
   end
 
-  scenario 'it immediately resets token upon successful password update' do
+  scenario 'immediately resets token upon successful password update' do
     recover_password
     set_password(password: 'new pass', password_confirmation: 'new pass')
     visit "/users/reset_password?token=#{user.password_token}"
@@ -78,6 +79,11 @@ feature 'Resetting password' do
     fill_in :password, with: password
     fill_in :password_confirmation, with: password_confirmation
     click_button 'Submit'
+  end
+
+  scenario 'calls SendRecoverLink to send link' do
+    expect(SendRecoverLink).to receive(:call).with(user)
+    recover_password
   end
 
 end

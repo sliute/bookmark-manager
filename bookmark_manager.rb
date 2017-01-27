@@ -9,6 +9,7 @@ require_relative 'server'
 require_relative 'controllers/links'
 require_relative 'controllers/sessions'
 require_relative 'controllers/tags'
+require_relative 'app/send_recover_link'
 require_relative 'controllers/users'
 
 class BookmarkManager < Sinatra::Base
