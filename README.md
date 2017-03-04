@@ -1,4 +1,10 @@
-# User Stories
+# Bookmark Manager (1/3)
+
+A [Makers Academy course challenge](https://github.com/makersacademy).
+
+Version 1/3. See [version 2/3](https://github.com/sim-ware/bookmark-manager) and [version 3/3](https://github.com/dylanrhodius/bookmark-challenge) in the respective MA student repos.
+
+## User Stories
 
 ```
 As a fervent web user,
@@ -18,3 +24,19 @@ So that I can easily find the links I need,
 I want to be able filter them by a tag.
 
 ```
+
+## How to Use
+```
+$ git clone https://github.com/sliute/bookmark-manager.git
+$ cd bookmark-manager
+$ bundle
+$ rackup
+```
+Then open [http://localhost:9292](http://localhost:9292).
+
+Or checkout the app on [Heroku](https://fast-temple-28875.herokuapp.com/links/new).
+
+## Authors
+
+* Lauren Rosie
+* Stefan Liute
