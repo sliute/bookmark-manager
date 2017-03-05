@@ -2,7 +2,9 @@
 
 A [Makers Academy course challenge](https://github.com/makersacademy).
 
-Version 1/3. See [version 2/3](https://github.com/sim-ware/bookmark-manager) and [version 3/3](https://github.com/dylanrhodius/bookmark-challenge) in the respective MA student repos.
+Version 1/3.
+
+Also take a look at my contributions to versions [2](https://github.com/sim-ware/bookmark-manager) and [3](https://github.com/dylanrhodius/bookmark-challenge) in the respective MA student repos.
 
 ## User Stories
 
@@ -30,6 +32,7 @@ I want to be able filter them by a tag.
 $ git clone https://github.com/sliute/bookmark-manager.git
 $ cd bookmark-manager
 $ bundle
+$ rspec
 $ rackup
 ```
 Then open [http://localhost:9292](http://localhost:9292).
